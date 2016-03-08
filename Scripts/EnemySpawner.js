@@ -26,18 +26,21 @@ function Update() {
      {
      	Debug.Log(nextSpawn);
         nextSpawn = Time.time + spawnInterval;
-        
-        //--spawn new enemy
-        //Instantiate(shot, transform.position, transform.rotation);
-        
-        var enemyInstance : GameObject = Instantiate(Resources.Load("SpaceshipLarge", GameObject),
-				transform.position, 
-				transform.rotation);
+                
+        var enemyInstance : GameObject = spawnEnemy();
 //        Debug.Log("enemy"+Time.time);
 
-		enemyInstance.GetComponent.<EnemyMovement>().speed = 30;
+		enemyInstance.GetComponent.<EnemyMovement>().speed = speed;
         
      } 
 	//Debug.Log(Time.time);
 
- }
+}
+
+function spawnEnemy() {
+	var enemyInstance : GameObject = Instantiate(Resources.Load("SpaceshipLarge", GameObject),
+				transform.position, 
+				transform.rotation);
+				
+	return enemyInstance;
+}
