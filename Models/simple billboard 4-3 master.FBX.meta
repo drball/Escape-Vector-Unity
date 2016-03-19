@@ -1,17 +1,38 @@
 fileFormatVersion: 2
-guid: 6b2bd1a0c9b4a5044a887120d369fdc3
-timeCreated: 1457310568
+guid: 0598a7003c09e8d479ae5aa4763212d7
+timeCreated: 1457942874
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Box01
+    100002: Camera01
+    100004: Camera01.Target
+    100006: Object01
+    100008: Plane01
+    100010: Plane02
+    100012: //RootNode
+    100014: Sky01
+    400000: Box01
+    400002: Camera01
+    400004: Camera01.Target
+    400006: Object01
+    400008: Plane01
+    400010: Plane02
+    400012: //RootNode
+    400014: Sky01
+    2300000: Box01
+    2300002: Object01
+    2300004: Plane01
+    2300006: Plane02
+    3300000: Box01
+    3300002: Object01
+    3300004: Plane01
+    3300006: Plane02
+    4300000: Box01
+    4300002: Plane01
+    4300004: Object01
+    4300006: Plane02
   materials:
     importMaterials: 1
     materialName: 0
@@ -36,12 +57,12 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

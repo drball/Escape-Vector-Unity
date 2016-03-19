@@ -1,8 +1,10 @@
 ﻿#pragma strict
 import UnityEngine.UI;
 
-function Start () {
+public var currentLevelNum : int; 
 
+function Start () {
+	currentLevelNum = 1;
 }
 
 function Update () {

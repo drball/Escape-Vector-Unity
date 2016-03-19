@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: 6b2bd1a0c9b4a5044a887120d369fdc3
-timeCreated: 1457310568
+guid: 78eefb2151a779343b709c19813929e9
+timeCreated: 1458202313
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Box01
+    100002: Object01
+    100004: //RootNode
+    400000: Box01
+    400002: Object01
+    400004: //RootNode
+    2300000: Box01
+    2300002: Object01
+    3300000: Box01
+    3300002: Object01
+    4300000: Box01
+    4300002: Object01
   materials:
     importMaterials: 1
     materialName: 0
@@ -36,12 +41,12 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
