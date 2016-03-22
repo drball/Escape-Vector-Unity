@@ -6,12 +6,17 @@ public var SparkParticles : GameObject;
 public var playerMovementScript : PlayerMovement; //script
 public var isAlive = true;
 
-
 private var rb: Rigidbody;
+private var playerStartPos : Vector3;
+private var vfx : MeshRenderer;
 
 
 function Start () {
 	playerMovementScript = GetComponent.<PlayerMovement>();
+	
+	playerStartPos = transform.position;
+	
+	vfx = GetComponent.<MeshRenderer>();
 	
 	rb = GetComponent.<Rigidbody>();
 	
@@ -37,7 +42,7 @@ function OnCollisionEnter(collision: Collision) {
 		if(isAlive == true) {
 			playerMovementScript.isMoving = false;
 			isAlive = false;
-			rb.drag = 0;
+			rb.drag = 0.5;
 			rb.AddRelativeTorque (0,50,0);
 			
 			//--make spark for a few seconds
@@ -50,10 +55,23 @@ function OnCollisionEnter(collision: Collision) {
 			yield WaitForSeconds(0.25);
 			
 			SparkParticles.SetActive(false);
-			GetComponent.<MeshRenderer>().enabled = false;
+			vfx.enabled = false;
+			
+			yield WaitForSeconds(1);
+			
+			ExplosionParticles.SetActive(false);
 			
 		}
 		
 	}
 	
+}
+
+function PlayerReset () {
+	vfx.enabled = false;
+	rb.velocity = Vector3.zero;
+	rb.angularVelocity = Vector3.zero;
+	
+	transform.position = playerStartPos;
+	transform.rotation = Quaternion.identity;
 }

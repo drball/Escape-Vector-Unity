@@ -42,6 +42,11 @@ function FixedUpdate ()
 		ParticleThrustActive = true;
 
 	} else {
+//		ParticleThrustActive = false;
+		GetComponent.<Rigidbody>().AddRelativeForce (-Vector3.forward * (speed/4));
+	}
+	
+	if(!playerControllerScript.isAlive) {
 		ParticleThrustActive = false;
 	}
 
