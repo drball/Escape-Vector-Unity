@@ -8,8 +8,9 @@ public var isAlive = true;
 
 private var rb: Rigidbody;
 private var playerStartPos : Vector3;
+private var playerStartRotation : Quaternion;
 private var vfx : MeshRenderer;
-
+private var initialDrag : float;
 
 function Start () {
 	playerMovementScript = GetComponent.<PlayerMovement>();
@@ -19,9 +20,13 @@ function Start () {
 	vfx = GetComponent.<MeshRenderer>();
 	
 	rb = GetComponent.<Rigidbody>();
+
+	initialDrag = rb.drag;
 	
 	ExplosionParticles.SetActive(false);
 	SparkParticles.SetActive(false);
+
+	playerStartRotation = transform.rotation;
 }
 
 function Update () {
@@ -60,18 +65,44 @@ function OnCollisionEnter(collision: Collision) {
 			yield WaitForSeconds(1);
 			
 			ExplosionParticles.SetActive(false);
+
+			yield WaitForSeconds(1);
+
+			PlayerReset ();
 			
 		}
 		
+	} else if (collision.collider.tag == "Exit"){
+	    Debug.Log("player collides");
 	}
 	
 }
 
 function PlayerReset () {
-	vfx.enabled = false;
+	vfx.enabled = true;
 	rb.velocity = Vector3.zero;
 	rb.angularVelocity = Vector3.zero;
 	
 	transform.position = playerStartPos;
-	transform.rotation = Quaternion.identity;
+	transform.rotation = playerStartRotation;
+
+	rb.drag = initialDrag;
+
+	isAlive = true;
 }
+
+function OnTriggerEnter(other: Collider) 
+    {
+        //--when player touches portal
+        if (other.tag == "Exit" && isAlive)
+        {
+            Debug.Log("player touches portal");
+	        		
+            isAlive = false;
+            vfx.enabled = false;
+
+            //-- some particle effect perhaps
+	    
+        }
+
+    }
