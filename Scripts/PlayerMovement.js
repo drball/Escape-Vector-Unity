@@ -8,7 +8,7 @@ public var ParticleThrustR : GameObject;
 //public var vfxObj : GameObject;
 
 private var ParticleThrustActive = false;
-private var ParticleThrustEmissionRate;
+private var ParticleThrustEmissionRate : float;
 private var rb: Rigidbody;
 
 public var playerControllerScript : PlayerController; //script

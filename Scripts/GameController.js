@@ -13,7 +13,7 @@ function Start () {
 	{
 		levelReached = levelReachedLoad;
 	}
-	Debug.Log("levelReached"+levelReached);
+	// Debug.Log("levelReached"+levelReached);
 	
 	playerControllerScript = GetComponent.<PlayerController>();
 	

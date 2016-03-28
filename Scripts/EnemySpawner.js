@@ -24,7 +24,7 @@ function Update() {
 
      if(Time.time > nextSpawn)
      {
-     	Debug.Log(nextSpawn);
+     	// Debug.Log(nextSpawn);
         nextSpawn = Time.time + spawnInterval;
                 
         var enemyInstance : GameObject = spawnEnemy();

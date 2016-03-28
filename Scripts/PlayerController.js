@@ -11,6 +11,8 @@ private var playerStartPos : Vector3;
 private var playerStartRotation : Quaternion;
 private var vfx : MeshRenderer;
 private var initialDrag : float;
+private var PortalObject : GameObject;
+private var PortalScript : PortalScript;
 
 function Start () {
 	playerMovementScript = GetComponent.<PlayerMovement>();
@@ -27,6 +29,9 @@ function Start () {
 	SparkParticles.SetActive(false);
 
 	playerStartRotation = transform.rotation;
+
+	PortalObject = GameObject.Find("SpacePortal"); 
+	PortalScript = PortalObject.GetComponent.<PortalScript>();
 }
 
 function Update () {
@@ -92,17 +97,30 @@ function PlayerReset () {
 }
 
 function OnTriggerEnter(other: Collider) 
+{
+    //--when player touches portal
+    if (other.tag == "Exit" && isAlive)
     {
-        //--when player touches portal
-        if (other.tag == "Exit" && isAlive)
-        {
-            Debug.Log("player touches portal");
-	        		
-            isAlive = false;
-            vfx.enabled = false;
+        Debug.Log("player touches portal");
+        		
+        OnExit();
+        //-- some particle effect
 
-            //-- some particle effect perhaps
-	    
-        }
+        PortalScript.EnterPortal();
 
     }
+
+}
+
+function OnExit() {
+	//--called when touches exit (on portal script)
+
+	Debug.Log("hellooooo");
+
+	if(isAlive) {
+		isAlive = false;
+        vfx.enabled = false;
+	}else{
+		Debug.Log("exit called but player is not alive");
+	}
+}
